@@ -1,0 +1,226 @@
+[gd_scene load_steps=23 format=3 uid="uid://cdy6vkhq3mjqk"]
+
+[ext_resource type="Script" path="res://Scripts/Builder.gd" id="1_nbeg1"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_tjhes"]
+[ext_resource type="Texture2D" uid="uid://crahst5oscmdj" path="res://Resources/Images/Coin.png" id="2_21ipr"]
+[ext_resource type="Shader" path="res://Resources/Shaders/Lava.gdshader" id="2_crcr5"]
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="2_oyfjo"]
+[ext_resource type="Texture2D" uid="uid://ctw7kyk2qg43r" path="res://Resources/Images/o2.png" id="3_kdiye"]
+[ext_resource type="Texture2D" uid="uid://dyux0q3wreys5" path="res://Resources/Images/food.png" id="4_r6p4x"]
+[ext_resource type="Texture2D" uid="uid://b5wydhavl1l40" path="res://Resources/Images/pipol.png" id="5_nj0np"]
+[ext_resource type="StyleBox" uid="uid://b34jjv7ccdm7w" path="res://Resources/Styles/Style.tres" id="6_85udd"]
+[ext_resource type="Texture2D" uid="uid://cx44lwcs6epsm" path="res://icon.svg" id="8_bpuwq"]
+[ext_resource type="ArrayMesh" uid="uid://chl6a0unqgxsg" path="res://Resources/Models/terrain.obj" id="9_1t3cl"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_wn6i3"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yl4md"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_35vfu"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_yl4md")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uu32d"]
+albedo_color = Color(0.701961, 0.329412, 0, 1)
+normal_enabled = true
+normal_scale = 0.6
+normal_texture = SubResource("NoiseTexture2D_35vfu")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c1uwu"]
+size = Vector3(17.2051, 1, 17.977)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4d2bx"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l6ccq"]
+noise_type = 3
+frequency = 0.0625
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bqy4c"]
+seamless = true
+as_normal_map = true
+bump_strength = 1.5
+noise = SubResource("FastNoiseLite_l6ccq")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hon12"]
+noise_type = 3
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3ubql"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_hon12")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_smuke"]
+render_priority = 0
+shader = ExtResource("2_crcr5")
+shader_parameter/albedo = Color(0.858824, 0.192157, 0, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.02
+shader_parameter/wave_direction = Vector2(2, 2)
+shader_parameter/wave_direction2 = Vector2(0, 1)
+shader_parameter/time_scale = 0.025
+shader_parameter/edge_scale = 0.1
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/edge_color = null
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_bqy4c")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_3ubql")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="BuilderNode" type="Node3D" parent="."]
+script = ExtResource("1_nbeg1")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="BuilderNode"]
+motion_mode = 1
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="BuilderNode/CharacterBody3D"]
+mesh = SubResource("SphereMesh_wn6i3")
+
+[node name="Terrain" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.515, 0, 0, 0, 7.515, 0, 0, 0, 7.515, 0, 0.260138, 0)
+material_override = SubResource("StandardMaterial3D_uu32d")
+mesh = ExtResource("9_1t3cl")
+
+[node name="TerrainArea" type="Area3D" parent="Terrain"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/TerrainArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442306, 0)
+shape = SubResource("BoxShape3D_c1uwu")
+
+[node name="Lava" type="CSGMesh3D" parent="."]
+transform = Transform3D(125, 0, 0, 0, 0.978, 0, 0, 0, 125, 0, 0, 0)
+mesh = SubResource("PlaneMesh_4d2bx")
+material = SubResource("ShaderMaterial_smuke")
+
+[node name="TerrainArea" type="Area3D" parent="Lava"]
+transform = Transform3D(0.25118, 0, 0, 0, 7.68405, 0, 0, 0, 0.147396, 0, 0.0493302, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lava/TerrainArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442306, 0)
+shape = SubResource("BoxShape3D_c1uwu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.39956, -0.755822, 0.518734, 0.189796, 0.485399, 0.853443, -0.896844, 0.439455, -0.0504942, 4.01131, 3.42539, 0.0100279)
+light_color = Color(1, 0.776471, 0.698039, 1)
+light_indirect_energy = 16.0
+
+[node name="CameraNode" type="Node3D" parent="."]
+script = ExtResource("1_tjhes")
+
+[node name="Camera3D" type="Camera3D" parent="CameraNode"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10.1662, 7.89307)
+fov = 90.0
+
+[node name="Interface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 18.0
+offset_top = 10.0
+offset_right = 58.0
+offset_bottom = 50.0
+script = ExtResource("2_oyfjo")
+
+[node name="ColorRect" type="ColorRect" parent="Interface"]
+layout_mode = 0
+offset_right = 191.0
+offset_bottom = 181.0
+color = Color(0, 0.541176, 0.658824, 0.262745)
+
+[node name="Inhabitants" type="TextureRect" parent="Interface/ColorRect"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 35.0
+offset_bottom = 35.0
+texture = ExtResource("5_nj0np")
+expand_mode = 5
+
+[node name="InhabitantsText" type="Label" parent="Interface/ColorRect/Inhabitants"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -5.0
+offset_right = 173.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_85udd")
+text = "100 habitants
+"
+
+[node name="Oxygen" type="TextureRect" parent="Interface/ColorRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 43.0
+offset_right = 35.0
+offset_bottom = 68.0
+texture = ExtResource("3_kdiye")
+expand_mode = 5
+
+[node name="OxygenText" type="Label" parent="Interface/ColorRect/Oxygen"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -5.0
+offset_right = 79.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_85udd")
+text = "50%"
+
+[node name="Money" type="TextureRect" parent="Interface/ColorRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 78.2
+offset_right = 36.0
+offset_bottom = 103.2
+texture = ExtResource("2_21ipr")
+expand_mode = 5
+
+[node name="MoneyText" type="Label" parent="Interface/ColorRect/Money"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -5.0
+offset_right = 79.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_85udd")
+text = "10 $"
+
+[node name="Food" type="TextureRect" parent="Interface/ColorRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 113.0
+offset_right = 36.0
+offset_bottom = 138.0
+texture = ExtResource("4_r6p4x")
+expand_mode = 5
+
+[node name="FoodText" type="Label" parent="Interface/ColorRect/Food"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -5.0
+offset_right = 87.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_85udd")
+text = "100%"
+
+[node name="Day" type="TextureRect" parent="Interface/ColorRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 149.0
+offset_right = 35.0
+offset_bottom = 174.0
+texture = ExtResource("8_bpuwq")
+expand_mode = 5
+
+[node name="DayText" type="Label" parent="Interface/ColorRect/Day"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -5.0
+offset_right = 79.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_85udd")
+text = "50%"
