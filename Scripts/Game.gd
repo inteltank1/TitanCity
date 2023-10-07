@@ -1,6 +1,9 @@
 extends Control
 var time = 0
 
+@onready var MainNode = $"../PlacedStructures"
+var electricity = 0
+
 @onready var DayText = $ColorRect/Day/DayText
 var day = 0
 
@@ -24,3 +27,7 @@ func newday():
 	day += 1
 	DayText.text = "Day " + str(day)
 	time -= 15
+
+func updateelectricity():
+	electricity += 1
+	print(electricity)
