@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c3r1j7ooatjco"
+path="res://.godot/imported/2people.obj-e205270997dfac46d98e563fcca54207.mesh"
+
+[deps]
+
+files=["res://.godot/imported/2people.obj-e205270997dfac46d98e563fcca54207.mesh"]
+
+source_file="res://Resources/Models/PlaceableModels/Houses/2people/2people.obj"
+dest_files=["res://.godot/imported/2people.obj-e205270997dfac46d98e563fcca54207.mesh", "res://.godot/imported/2people.obj-e205270997dfac46d98e563fcca54207.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

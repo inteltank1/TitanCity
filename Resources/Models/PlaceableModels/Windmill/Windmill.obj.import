@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ct5si8snwfpoy"
+path="res://.godot/imported/Windmill.obj-bc2223fbb9406dd77964dfa4f26d73a1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Windmill.obj-bc2223fbb9406dd77964dfa4f26d73a1.mesh"]
+
+source_file="res://Resources/Models/PlaceableModels/Windmill/Windmill.obj"
+dest_files=["res://.godot/imported/Windmill.obj-bc2223fbb9406dd77964dfa4f26d73a1.mesh", "res://.godot/imported/Windmill.obj-bc2223fbb9406dd77964dfa4f26d73a1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://sbovxk40ps12"
+path="res://.godot/imported/Greenhouseobject.obj-d22b3cb595d9c806bf6527ab91e58c22.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Greenhouseobject.obj-d22b3cb595d9c806bf6527ab91e58c22.mesh"]
+
+source_file="res://Resources/Models/PlaceableModels/Greenhouse/Greenhouseobject.obj"
+dest_files=["res://.godot/imported/Greenhouseobject.obj-d22b3cb595d9c806bf6527ab91e58c22.mesh", "res://.godot/imported/Greenhouseobject.obj-d22b3cb595d9c806bf6527ab91e58c22.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

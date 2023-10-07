@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://jbqgeil40na1"]
+
+[ext_resource type="ArrayMesh" uid="uid://chged4cf8rs5r" path="res://Resources/Models/PlaceableModels/Houses/4People/4people.obj" id="1_m0i0i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_05eo5"]
+size = Vector3(16.6419, 1, 11.3127)
+
+[node name="4House" type="CSGMesh3D"]
+mesh = ExtResource("1_m0i0i")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.156553, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_05eo5")

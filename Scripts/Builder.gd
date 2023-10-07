@@ -3,8 +3,8 @@ extends Node3D
 @onready var camera = $"../CameraNode/Camera3D"
 @onready var model = $CharacterBody3D/CSGMesh3D
 
-@onready var Scenes = [load("res://Resources/Models/PlaceableModels/Scenes/SolarPanels.tscn")]
-@onready var modelsarray = [load("res://Resources/Models/PlaceableModels/Models/Solarpanel.obj")]
+@onready var Scenes = [load("res://Resources/Models/PlaceableModels/Solarpanel/SolarPanels.tscn")]
+@onready var modelsarray = [load("res://Resources/Models/PlaceableModels/Solarpanel/Solarpanel.obj")]
 var modelsnames = ["SolarPanels"]
 
 var current = 0

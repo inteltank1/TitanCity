@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d4imfv6s3hgb2"
+path="res://.godot/imported/Solarpanel.obj-529258410f1992a3d7e1b0cb6c547dbe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Solarpanel.obj-529258410f1992a3d7e1b0cb6c547dbe.mesh"]
+
+source_file="res://Resources/Models/PlaceableModels/Solarpanel/Solarpanel.obj"
+dest_files=["res://.godot/imported/Solarpanel.obj-529258410f1992a3d7e1b0cb6c547dbe.mesh", "res://.godot/imported/Solarpanel.obj-529258410f1992a3d7e1b0cb6c547dbe.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

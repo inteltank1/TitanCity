@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cdy6vkhq3mjqk"]
+[gd_scene load_steps=24 format=3 uid="uid://cdy6vkhq3mjqk"]
 
 [ext_resource type="Script" path="res://Scripts/Builder.gd" id="1_nbeg1"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_tjhes"]
@@ -13,7 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://cx44lwcs6epsm" path="res://icon.svg" id="8_bpuwq"]
 [ext_resource type="ArrayMesh" uid="uid://chl6a0unqgxsg" path="res://Resources/Models/terrain.obj" id="9_1t3cl"]
 [ext_resource type="Texture2D" uid="uid://do2u346gkyln6" path="res://Resources/Images/Electricity.png" id="13_ow12t"]
-[ext_resource type="PackedScene" uid="uid://cpos45ga2tb5b" path="res://Resources/Models/PlaceableModels/Scenes/SolarPanels.tscn" id="14_qrtq6"]
+[ext_resource type="PackedScene" uid="uid://cpos45ga2tb5b" path="res://Resources/Models/PlaceableModels/Solarpanel/SolarPanels.tscn" id="14_n8d7i"]
+[ext_resource type="PackedScene" uid="uid://jbqgeil40na1" path="res://Resources/Models/PlaceableModels/Houses/4People/4House.tscn" id="15_epsxs"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_wn6i3"]
 
@@ -113,10 +114,10 @@ fov = 90.0
 [node name="Interface" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 18.0
-offset_top = 10.0
-offset_right = 58.0
-offset_bottom = 50.0
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 1151.0
+offset_bottom = 650.0
 script = ExtResource("2_oyfjo")
 
 [node name="ColorRect" type="ColorRect" parent="Interface"]
@@ -240,12 +241,25 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("6_85udd")
 text = "1/5"
 
+[node name="Button" type="Button" parent="Interface"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 556.0
+offset_right = 223.0
+offset_bottom = 641.0
+text = "Package Receiver"
+
 [node name="PlacedStructures" type="Node3D" parent="."]
 
-[node name="SolarPanels2" parent="PlacedStructures" instance=ExtResource("14_qrtq6")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -24.5228, 0, 0)
-skeleton = NodePath("../SolarPanels")
-
-[node name="SolarPanels" parent="PlacedStructures" instance=ExtResource("14_qrtq6")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18.5829, 0, 0)
+[node name="SolarPanels" parent="PlacedStructures" instance=ExtResource("14_n8d7i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26.2227, 0, 0.0681767)
 skeleton = NodePath("../..")
+
+[node name="SolarPanels2" parent="PlacedStructures" instance=ExtResource("14_n8d7i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.8158, 0, 0.347503)
+skeleton = NodePath("../..")
+
+[node name="4House" parent="PlacedStructures" instance=ExtResource("15_epsxs")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.79588, 0.881267, 2.42262)
+
+[connection signal="pressed" from="Interface/Button" to="Interface" method="_on_button_pressed"]

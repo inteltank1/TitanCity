@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqa2vumjmsxtc"]
+
+[ext_resource type="Texture2D" uid="uid://0h0tld0vc7uh" path="res://Resources/Images/earth.png" id="1_b7ypo"]
+[ext_resource type="Script" path="res://Scripts/PackageManager.gd" id="1_es8uf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ix2i3"]
+bg_color = Color(0.105882, 0.694118, 0.619608, 0.513726)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7orof"]
+bg_color = Color(0, 0.717647, 0.372549, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 15
+
+[node name="PackageManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_es8uf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.5
+offset_top = -249.052
+offset_right = 326.5
+offset_bottom = 249.052
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ix2i3")
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -220.36
+offset_right = 236.0
+offset_bottom = 78.64
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7orof")
+
+[node name="Earth" type="Sprite2D" parent="Label/Label"]
+position = Vector2(240, 135.36)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("1_b7ypo")

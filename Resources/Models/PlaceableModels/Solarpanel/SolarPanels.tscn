@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpos45ga2tb5b"]
+
+[ext_resource type="ArrayMesh" uid="uid://d4imfv6s3hgb2" path="res://Resources/Models/PlaceableModels/Solarpanel/Solarpanel.obj" id="1_5ahca"]
+[ext_resource type="Script" path="res://Resources/Models/PlaceableModels/Solarpanel/SolarPanel.gd" id="2_hsfmp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6t82q"]
+size = Vector3(9.30661, 1, 9.16609)
+
+[node name="SolarPanels" type="MeshInstance3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("1_5ahca")
+script = ExtResource("2_hsfmp")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.156553, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_6t82q")
