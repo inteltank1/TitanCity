@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Resources/Models/PlaceableModels/Greenhouse/Greenhouse.gd" id="2_j5htt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_454s6"]
-size = Vector3(9.32539, 1, 9.20978)
+size = Vector3(9.32539, 5.35027, 9.20978)
 
 [node name="Greenhouse" type="CSGMesh3D"]
 mesh = ExtResource("1_kig3r")
@@ -14,5 +14,5 @@ script = ExtResource("2_j5htt")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0133209, 0.175905, -0.947222)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87236, 0, -3.81842e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87236, 0.776517, -3.63216e-08)
 shape = SubResource("BoxShape3D_454s6")

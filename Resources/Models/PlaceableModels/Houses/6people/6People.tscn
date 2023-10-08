@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Resources/Models/PlaceableModels/Houses/6people/6People.gd" id="2_p0svh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nslsi"]
-size = Vector3(15.3052, 1, 8.79315)
+size = Vector3(15.3052, 3.15164, 8.79315)
 
 [node name="6People" type="CSGMesh3D"]
 mesh = ExtResource("1_jgkcd")
@@ -14,5 +14,5 @@ script = ExtResource("2_p0svh")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0056982, 0.166633, 0.00389433)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06838, 0, -4.84288e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06838, 1.14197, -4.93601e-08)
 shape = SubResource("BoxShape3D_nslsi")

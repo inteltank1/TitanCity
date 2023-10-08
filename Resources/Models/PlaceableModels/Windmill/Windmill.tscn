@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Resources/Models/PlaceableModels/Windmill/Windmill.gd" id="2_ex8xb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p2t60"]
-size = Vector3(2.49194, 1, 2.78963)
+size = Vector3(3.50067, 3.49138, 4.09454)
 
 [node name="Windmill" type="CSGMesh3D"]
 mesh = ExtResource("1_0chj2")
@@ -14,5 +14,5 @@ script = ExtResource("2_ex8xb")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0056982, 0.166633, 0.00389433)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0751084, 0.0139637, 0.016387)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0751084, 1.47846, 0.016387)
 shape = SubResource("BoxShape3D_p2t60")

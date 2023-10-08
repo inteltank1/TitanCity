@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Resources/Models/PlaceableModels/Factory/Factory.gd" id="2_sh4ws"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4cpli"]
-size = Vector3(8.42741, 1, 8.79315)
+size = Vector3(8.42741, 4.37906, 8.79315)
 
 [node name="Factory" type="CSGMesh3D"]
 mesh = ExtResource("1_2ffav")
@@ -14,5 +14,5 @@ script = ExtResource("2_sh4ws")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0056982, 0.166633, 0.00389433)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0.0356896, 0, -4.19095e-09)
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0.0356896, 0.789404, -5.12227e-09)
 shape = SubResource("BoxShape3D_4cpli")

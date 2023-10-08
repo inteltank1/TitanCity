@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Resources/Models/PlaceableModels/Cave/Cave.gd" id="2_cicli"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awfth"]
-size = Vector3(4.34529, 1, 4.28159)
+size = Vector3(4.34529, 2.86033, 4.28159)
 
 [node name="Cave" type="CSGMesh3D"]
 transform = Transform3D(1.83, 0, 0, 0, 1.83, 0, 0, 0, 1.83, 0, 0, 0)
@@ -15,5 +15,5 @@ script = ExtResource("2_cicli")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0056982, 0.166633, 0.00389433)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222306, 0, -1.16415e-08)
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0.222306, 0, -1.16415e-08)
 shape = SubResource("BoxShape3D_awfth")

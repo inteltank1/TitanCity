@@ -73,7 +73,7 @@ func peoplearriving(people):
 	updatelabels()
 	
 func useresources(howmuch):
-	resources -= resources
+	resources -= howmuch
 	
 func getresources(howmuch):
 	resourceadd += howmuch
@@ -111,16 +111,16 @@ var electricity_for_construction = {
 	Factory=20
 }
 
-func canplace(name):
-	if resources >= Resources_for_construction[name] && (electricity_for_construction[name] + electricityused) <= electricitylimit:
-		resources -= Resources_for_construction[name]
+func canplace(whichname):
+	if resources >= Resources_for_construction[whichname] && (electricity_for_construction[whichname] + electricityused) <= electricitylimit:
+		resources -= Resources_for_construction[whichname]
 		return true
 	else:
 		return false
 
-func resourcesneeded(name):
-	$ElectricityNeededText.text = "Electricity needed: "+str(electricity_for_construction[name])
-	$ResourcesNeededText.text = "Resources needed: "+str(Resources_for_construction[name])
+func resourcesneeded(whichname):
+	$ElectricityNeededText.text = "Electricity needed: "+str(electricity_for_construction[whichname])
+	$ResourcesNeededText.text = "Resources needed: "+str(Resources_for_construction[whichname])
 
 func _on_speedx_1_pressed():
 	secsperday = 15
