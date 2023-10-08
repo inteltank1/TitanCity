@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4tib8yuqsl54"]
+
+[ext_resource type="ArrayMesh" uid="uid://bpvedvfibuwv" path="res://Resources/Models/PlaceableModels/Cave/Cave.obj" id="1_0dwcu"]
+[ext_resource type="Script" path="res://Resources/Models/PlaceableModels/Cave/Cave.gd" id="2_cicli"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awfth"]
+size = Vector3(4.34529, 1, 4.28159)
+
+[node name="Cave" type="CSGMesh3D"]
+transform = Transform3D(1.83, 0, 0, 0, 1.83, 0, 0, 0, 1.83, 0, 0, 0)
+mesh = ExtResource("1_0dwcu")
+script = ExtResource("2_cicli")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0056982, 0.166633, 0.00389433)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222306, 0, -1.16415e-08)
+shape = SubResource("BoxShape3D_awfth")

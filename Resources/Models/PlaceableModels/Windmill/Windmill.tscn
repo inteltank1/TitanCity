@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnojdgael63yi"]
+
+[ext_resource type="ArrayMesh" uid="uid://ct5si8snwfpoy" path="res://Resources/Models/PlaceableModels/Windmill/Windmill.obj" id="1_0chj2"]
+[ext_resource type="Script" path="res://Resources/Models/PlaceableModels/Windmill/Windmill.gd" id="2_ex8xb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p2t60"]
+size = Vector3(2.49194, 1, 2.78963)
+
+[node name="Windmill" type="CSGMesh3D"]
+mesh = ExtResource("1_0chj2")
+script = ExtResource("2_ex8xb")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0056982, 0.166633, 0.00389433)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0751084, 0.0139637, 0.016387)
+shape = SubResource("BoxShape3D_p2t60")

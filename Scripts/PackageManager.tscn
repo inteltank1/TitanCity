@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqa2vumjmsxtc"]
+[gd_scene load_steps=8 format=3 uid="uid://bqa2vumjmsxtc"]
 
 [ext_resource type="Texture2D" uid="uid://0h0tld0vc7uh" path="res://Resources/Images/earth.png" id="1_b7ypo"]
 [ext_resource type="Script" path="res://Scripts/PackageManager.gd" id="1_es8uf"]
+[ext_resource type="Texture2D" uid="uid://bl5dsf1yvdvdb" path="res://Resources/Images/sun.png" id="3_38iqq"]
+[ext_resource type="Texture2D" uid="uid://ckbr3cnf4mawk" path="res://Resources/Images/saturn.png" id="4_l38ie"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ix2i3"]
 bg_color = Color(0.105882, 0.694118, 0.619608, 0.513726)
@@ -9,6 +11,13 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkm3j"]
+bg_color = Color(0.470588, 0, 0.101961, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7orof"]
 bg_color = Color(0, 0.717647, 0.372549, 1)
@@ -34,13 +43,45 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -326.5
-offset_top = -249.052
-offset_right = 326.5
-offset_bottom = 249.052
+offset_left = -326.0
+offset_top = -249.0
+offset_right = 327.0
+offset_bottom = 287.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ix2i3")
+
+[node name="Label2" type="Label" parent="Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.5
+offset_top = 150.72
+offset_right = 238.5
+offset_bottom = 200.72
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0.0235294, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kkm3j")
+
+[node name="Label" type="Label" parent="Label/Label2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -13.0
+offset_right = 135.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "Estimated time until arrival: 5 Days"
 
 [node name="Label" type="Label" parent="Label"]
 layout_mode = 1
@@ -49,10 +90,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -234.0
-offset_top = -220.36
-offset_right = 236.0
-offset_bottom = 78.64
+offset_left = -233.5
+offset_top = -235.0
+offset_right = 236.5
+offset_bottom = 132.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_7orof")
@@ -61,3 +102,31 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_7orof")
 position = Vector2(240, 135.36)
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("1_b7ypo")
+
+[node name="Button" type="Button" parent="Label"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 484.0
+offset_right = 281.0
+offset_bottom = 518.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "ACCEPT"
+
+[node name="Button2" type="Button" parent="Label"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 484.0
+offset_right = 429.0
+offset_bottom = 518.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "CANCEL"
+
+[node name="Sun" type="Sprite2D" parent="."]
+position = Vector2(579, 242)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_38iqq")
+
+[node name="Saturn" type="Sprite2D" parent="."]
+position = Vector2(579, 425)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_l38ie")

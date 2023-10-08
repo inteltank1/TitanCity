@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://oylsh7or47t"]
+
+[ext_resource type="ArrayMesh" uid="uid://c3r1j7ooatjco" path="res://Resources/Models/PlaceableModels/Houses/2people/2people.obj" id="1_l60dx"]
+[ext_resource type="Script" path="res://Resources/Models/PlaceableModels/Houses/2people/2People.gd" id="2_3lpcs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kuouy"]
+size = Vector3(8.13142, 1, 6.97076)
+
+[node name="2House" type="CSGMesh3D"]
+mesh = ExtResource("1_l60dx")
+script = ExtResource("2_3lpcs")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.156553, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_kuouy")
