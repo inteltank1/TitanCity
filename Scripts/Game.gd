@@ -1,6 +1,8 @@
 extends Control
 @onready var Package = load("res://Scripts/PackageManager.tscn")
 @onready var SendPeople = load("res://Scripts/PeopleArriving.tscn")
+@onready var Dead = load("res://Scripts/DeadScene.tscn")
+var dead = false
 
 #Resources needed for the construction of the elements
 
@@ -26,7 +28,7 @@ var alreadysendingpeople = false
 var daysuntilarrival = 0
 var personsarriving = 0
 var oxygenadd = 0
-var oxygen = 0
+var oxygen = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,6 +44,15 @@ func _process(delta):
 	pass
 
 func newday():
+	if !dead:
+		if oxygen <= 0 || foodpercent <= 0 || population > maxpeople:
+			print("DEAD")
+			dead = true
+			var instance = Dead.instantiate()
+			self.add_child(instance)
+		
+		
+	
 	resources += resourceadd
 	foodpercent -= population*2
 	foodpercent += foodadd
@@ -66,8 +77,7 @@ func newday():
 			alreadysendingpeople = false
 			updatelabels()
 	
-	if oxygen <= 0 || foodpercent <= 0 || population > maxpeople:
-		print("DEAD")
+	
 
 
 

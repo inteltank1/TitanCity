@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://bux83yyu5yvfn"]
+
+[ext_resource type="Script" path="res://Scripts/DeadScene.gd" id="1_staux"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rkts"]
+bg_color = Color(0.105882, 0.694118, 0.619608, 0.513726)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fm8m7"]
+bg_color = Color(0.470588, 0, 0.101961, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="DeadScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_staux")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.0
+offset_top = -316.0
+offset_right = 317.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7rkts")
+
+[node name="Label2" type="Label" parent="Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.0
+offset_top = -241.0
+offset_right = 306.0
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0.0235294, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_fm8m7")
+
+[node name="Label" type="Label" parent="Label/Label2"]
+layout_mode = 0
+offset_left = -39.0
+offset_top = 83.0
+offset_right = 643.0
+offset_bottom = 393.0
+theme_override_font_sizes/font_size = 111
+text = "YOUR CITY 
+FAILED!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = -130.0
+offset_right = 114.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 56
+text = "Restart?"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

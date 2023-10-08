@@ -180,6 +180,16 @@ theme_override_styles/normal = ExtResource("6_85udd")
 text = "Greenhouse
 "
 
+[node name="PeopleArriving" type="Label" parent="Interface"]
+layout_mode = 0
+offset_left = 874.0
+offset_top = 8.0
+offset_right = 1143.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_85udd")
+text = "People arriving in 5 days: 16"
+
 [node name="ColorRect" type="ColorRect" parent="Interface"]
 layout_mode = 0
 offset_right = 129.0
