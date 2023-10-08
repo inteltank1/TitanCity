@@ -1,5 +1,6 @@
 extends Control
 @onready var Package = load("res://Scripts/PackageManager.tscn")
+@onready var SendPeople = load("res://Scripts/PeopleArriving.tscn")
 
 #Resources needed for the construction of the elements
 
@@ -7,7 +8,7 @@ extends Control
 
 
 @onready var FoodText = $ColorRect/Food/FoodText
-var foodpercent = 100
+var foodpercent = 50
 var time = 0
 var day = 0
 var electricityused = 0
@@ -19,6 +20,11 @@ var resources = 0
 var resourceadd = 0 
 
 var secsperday = 15
+
+var alreadysendingpeople = false
+
+var daysuntilarrival = 0
+var personsarriving = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,6 +46,23 @@ func newday():
 	day += 1
 	time -= secsperday
 	updatelabels()
+	print(randi_range(1, 4))
+	if !alreadysendingpeople && randi_range(1, 2) == 1:
+		alreadysendingpeople = true
+		var instance = SendPeople.instantiate()
+		personsarriving = randi_range(2, 14)
+		daysuntilarrival = randi_range(3, 10)
+		self.add_child(instance)
+		instance.peoplearriving(personsarriving, daysuntilarrival)
+	elif alreadysendingpeople && daysuntilarrival > 0:
+		daysuntilarrival -= 1
+		if daysuntilarrival == 0:
+			population += personsarriving
+			alreadysendingpeople = false
+			updatelabels()
+			
+			
+		
 
 func createhistory():
 	var instance = Package.instantiate()
@@ -66,10 +89,6 @@ func foodmaker(food):
 	
 func houselimitadd(peopleadd):
 	maxpeople += peopleadd
-	updatelabels()
-	
-func peoplearriving(people):
-	population += people
 	updatelabels()
 	
 func useresources(howmuch):

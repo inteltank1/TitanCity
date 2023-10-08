@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2y7t6y60srfw"]
+[gd_scene load_steps=4 format=3 uid="uid://b2y7t6y60srfw"]
+
+[ext_resource type="Script" path="res://Scripts/PeopleArriving.gd" id="1_xfida"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldfvr"]
 bg_color = Color(0.105882, 0.694118, 0.619608, 0.513726)
@@ -22,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xfida")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -71,10 +74,13 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -112.0
-offset_top = -113.0
+offset_top = -120.655
 offset_right = 112.0
+offset_bottom = -7.65448
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 66
 text = "OK"
+
+[connection signal="pressed" from="Label/Button" to="." method="_on_button_pressed"]

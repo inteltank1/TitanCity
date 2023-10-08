@@ -25,3 +25,12 @@ func getday(day):
 	print(daysuntilarrival)
 	
 	pass
+
+
+func _on_accept_pressed():
+	get_parent().remove_child(self)
+	pass # Replace with function body.
+
+func _on_cancel_pressed():
+	get_parent().remove_child(self)
+	pass # Replace with function body.

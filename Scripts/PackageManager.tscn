@@ -103,7 +103,7 @@ position = Vector2(240, 135.36)
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("1_b7ypo")
 
-[node name="Button" type="Button" parent="Label"]
+[node name="Accept" type="Button" parent="Label"]
 layout_mode = 0
 offset_left = 214.0
 offset_top = 484.0
@@ -112,7 +112,7 @@ offset_bottom = 518.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 text = "ACCEPT"
 
-[node name="Button2" type="Button" parent="Label"]
+[node name="Cancel" type="Button" parent="Label"]
 layout_mode = 0
 offset_left = 362.0
 offset_top = 484.0
@@ -130,3 +130,6 @@ texture = ExtResource("3_38iqq")
 position = Vector2(579, 425)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_l38ie")
+
+[connection signal="pressed" from="Label/Accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="Label/Cancel" to="." method="_on_cancel_pressed"]
