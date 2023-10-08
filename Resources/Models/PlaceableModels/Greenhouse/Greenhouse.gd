@@ -4,6 +4,7 @@ extends Node
 
 func _ready():
 	GameScript.foodmaker(5)
+	GameScript.remove_electricity(10)
 	pass # Replace with function body.
 
 

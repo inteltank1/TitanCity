@@ -4,7 +4,7 @@ extends CSGMesh3D
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	GameScript.moreelectricity(6)
+	GameScript.moreelectricity(10)
 	pass # Replace with function body.
 
 

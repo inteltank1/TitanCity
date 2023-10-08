@@ -5,6 +5,7 @@ extends CSGMesh3D
 
 func _ready():
 	GameScript.getresources(100)
+	GameScript.remove_electricity(20)
 	pass # Replace with function body.
 
 

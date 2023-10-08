@@ -99,8 +99,20 @@ var Resources_for_construction = {
 	Factory=250
 }
 
+var electricity_for_construction = {
+	base2=5,
+	base4=10,
+	base6=15,
+	Windmill=0,
+	Greenhouse=10,
+	SolarPanels=0,
+	o2_plants=300,    # generates o2 for 100 persons/day.
+	Cave=10,
+	Factory=20
+}
+
 func canplace(name):
-	if resources >= Resources_for_construction[name]:
+	if resources >= Resources_for_construction[name] && (electricity_for_construction[name] + electricityused) <= electricitylimit:
 		resources -= Resources_for_construction[name]
 		return true
 	else:

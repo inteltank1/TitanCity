@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cdy6vkhq3mjqk"]
+[gd_scene load_steps=27 format=3 uid="uid://cdy6vkhq3mjqk"]
 
 [ext_resource type="Script" path="res://Scripts/Builder.gd" id="1_nbeg1"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_tjhes"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://oylsh7or47t" path="res://Resources/Models/PlaceableModels/Houses/2people/2House.tscn" id="15_oy6p3"]
 [ext_resource type="PackedScene" uid="uid://dn1g3e4k7mi0u" path="res://Resources/Models/PlaceableModels/Greenhouse/Greenhouse.tscn" id="16_sgw0s"]
 [ext_resource type="PackedScene" uid="uid://c4tib8yuqsl54" path="res://Resources/Models/PlaceableModels/Cave/Cave.tscn" id="17_tgg6h"]
+[ext_resource type="PackedScene" uid="uid://bnojdgael63yi" path="res://Resources/Models/PlaceableModels/Windmill/Windmill.tscn" id="18_y8sn1"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_wn6i3"]
 
@@ -123,6 +124,7 @@ offset_bottom = 650.0
 script = ExtResource("2_oyfjo")
 
 [node name="Speedx1" type="Button" parent="Interface"]
+layout_mode = 0
 offset_left = 514.0
 offset_top = 603.0
 offset_right = 542.0
@@ -130,6 +132,7 @@ offset_bottom = 634.0
 text = ">"
 
 [node name="Speedx2" type="Button" parent="Interface"]
+layout_mode = 0
 offset_left = 554.0
 offset_top = 603.0
 offset_right = 582.0
@@ -137,6 +140,7 @@ offset_bottom = 634.0
 text = ">>"
 
 [node name="Speedx3" type="Button" parent="Interface"]
+layout_mode = 0
 offset_left = 594.0
 offset_top = 603.0
 offset_right = 630.0
@@ -145,13 +149,13 @@ text = ">>>"
 
 [node name="ResourcesNeededText" type="Label" parent="Interface"]
 layout_mode = 0
-offset_left = 936.0
+offset_left = 920.0
 offset_top = 607.0
-offset_right = 1135.0
+offset_right = 1142.0
 offset_bottom = 638.0
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("6_85udd")
-text = "Resources needed: 5
+text = "Resources needed: 200
 "
 
 [node name="ColorRect" type="ColorRect" parent="Interface"]
@@ -301,6 +305,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.03507, 0.410686, 23.3687)
 
 [node name="Cave2" parent="PlacedStructures" instance=ExtResource("17_tgg6h")]
 transform = Transform3D(1.83, 0, 0, 0, 1.83, 0, 0, 0, 1.83, -6, 0.76703, 14.5819)
+
+[node name="Windmill" parent="PlacedStructures" instance=ExtResource("18_y8sn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.94357, 0, 10.0446)
+
+[node name="Windmill2" parent="PlacedStructures" instance=ExtResource("18_y8sn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7566, -9.53674e-07, 5.64334)
 
 [connection signal="pressed" from="Interface/Speedx1" to="Interface" method="_on_speedx_1_pressed"]
 [connection signal="pressed" from="Interface/Speedx2" to="Interface" method="_on_speedx_2_pressed"]
