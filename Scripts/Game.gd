@@ -16,7 +16,7 @@ var electricitylimit = 0
 var foodadd = 0
 var maxpeople = 0
 var population = 1
-var resources = 0
+var resources = 30
 var resourceadd = 0 
 
 var secsperday = 15
@@ -110,11 +110,11 @@ var Resources_for_construction = {
 	base6=75,
 	Windmill=50,
 	rocket=100,
-	Greenhouse=300,
+	Greenhouse=150,
 	SolarPanels=10,
 	fusion_plants=1000,
 	o2_plants=300,    # generates o2 for 100 persons/day.
-	Cave=200,
+	Cave=50,
 	Factory=250
 }
 
@@ -130,6 +130,18 @@ var electricity_for_construction = {
 	Factory=20
 }
 
+var names = {
+	base2="Base for 2",
+	base4="Base for 4",
+	base6="Base for 6",
+	Windmill="Windmill",
+	Greenhouse="Greenhouse",
+	SolarPanels="Solar Panels",
+	o2_plants="Base for 2",    # generates o2 for 100 persons/day.
+	Cave="Cave",
+	Factory="Factory"
+}
+
 func canplace(whichname):
 	if resources >= Resources_for_construction[whichname] && (electricity_for_construction[whichname] + electricityused) <= electricitylimit:
 		resources -= Resources_for_construction[whichname]
@@ -138,6 +150,7 @@ func canplace(whichname):
 		return false
 
 func resourcesneeded(whichname):
+	$Names.text = names[whichname]
 	$ElectricityNeededText.text = "Electricity needed: "+str(electricity_for_construction[whichname])
 	$ResourcesNeededText.text = "Resources needed: "+str(Resources_for_construction[whichname])
 

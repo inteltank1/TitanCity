@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dyux0q3wreys5" path="res://Resources/Images/food.png" id="4_r6p4x"]
 [ext_resource type="Texture2D" uid="uid://b5wydhavl1l40" path="res://Resources/Images/pipol.png" id="5_nj0np"]
 [ext_resource type="StyleBox" uid="uid://b34jjv7ccdm7w" path="res://Resources/Styles/Style.tres" id="6_85udd"]
-[ext_resource type="Texture2D" uid="uid://cx44lwcs6epsm" path="res://icon.svg" id="8_bpuwq"]
 [ext_resource type="ArrayMesh" uid="uid://chl6a0unqgxsg" path="res://Resources/Models/terrain.obj" id="9_1t3cl"]
+[ext_resource type="Texture2D" uid="uid://bl5dsf1yvdvdb" path="res://Resources/Images/sun.png" id="12_get8f"]
 [ext_resource type="Texture2D" uid="uid://do2u346gkyln6" path="res://Resources/Images/Electricity.png" id="13_ow12t"]
 [ext_resource type="PackedScene" uid="uid://cpos45ga2tb5b" path="res://Resources/Models/PlaceableModels/Solarpanel/SolarPanels.tscn" id="14_n8d7i"]
 [ext_resource type="PackedScene" uid="uid://oylsh7or47t" path="res://Resources/Models/PlaceableModels/Houses/2people/2House.tscn" id="15_oy6p3"]
@@ -169,6 +169,17 @@ theme_override_styles/normal = ExtResource("6_85udd")
 text = "Electricity needed: 10
 "
 
+[node name="Names" type="Label" parent="Interface"]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 535.0
+offset_right = 1126.0
+offset_bottom = 566.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_85udd")
+text = "Greenhouse
+"
+
 [node name="ColorRect" type="ColorRect" parent="Interface"]
 layout_mode = 0
 offset_right = 129.0
@@ -258,7 +269,7 @@ offset_left = 11.0
 offset_top = 149.0
 offset_right = 35.0
 offset_bottom = 174.0
-texture = ExtResource("8_bpuwq")
+texture = ExtResource("12_get8f")
 expand_mode = 5
 
 [node name="DayText" type="Label" parent="Interface/ColorRect/Day"]
