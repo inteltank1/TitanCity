@@ -45,39 +45,35 @@ func _process(delta):
 
 func newday():
 	if !dead:
+		resources += resourceadd
+		foodpercent -= population*2
+		foodpercent += foodadd
+		oxygen += oxygenadd
+		oxygen -= population*2
+		
+		day += 1
+		time -= secsperday
+		updatelabels()
+		
+		if !alreadysendingpeople && randi_range(1, 2) == 1:
+			alreadysendingpeople = true
+			var instance = SendPeople.instantiate()
+			personsarriving = randi_range(2, 14)
+			daysuntilarrival = randi_range(3, 10)
+			self.add_child(instance)
+			instance.peoplearriving(personsarriving, daysuntilarrival)
+		elif alreadysendingpeople && daysuntilarrival > 0:
+			daysuntilarrival -= 1
+			if daysuntilarrival == 0:
+				population += personsarriving
+				alreadysendingpeople = false
+				updatelabels()
 		if oxygen <= 0 || foodpercent <= 0 || population > maxpeople:
 			print("DEAD")
 			dead = true
 			var instance = Dead.instantiate()
 			self.add_child(instance)
 		
-		
-	
-	resources += resourceadd
-	foodpercent -= population*2
-	foodpercent += foodadd
-	oxygen += oxygenadd
-	oxygen -= population*2
-	
-	day += 1
-	time -= secsperday
-	updatelabels()
-	print(randi_range(1, 4))
-	if !alreadysendingpeople && randi_range(1, 2) == 1:
-		alreadysendingpeople = true
-		var instance = SendPeople.instantiate()
-		personsarriving = randi_range(2, 14)
-		daysuntilarrival = randi_range(3, 10)
-		self.add_child(instance)
-		instance.peoplearriving(personsarriving, daysuntilarrival)
-	elif alreadysendingpeople && daysuntilarrival > 0:
-		daysuntilarrival -= 1
-		if daysuntilarrival == 0:
-			population += personsarriving
-			alreadysendingpeople = false
-			updatelabels()
-	
-	
 
 
 
@@ -125,6 +121,11 @@ func updatelabels():
 	$ColorRect/Food/FoodText.text = str(foodpercent)
 	$ColorRect/Electricity/ElectricityText.text = str(electricityused)+"/"+str(electricitylimit)
 	DayText.text = "Day " + str(day)
+	
+	if alreadysendingpeople:
+		$PeopleArriving.text = "People arriving in "+str(daysuntilarrival)+" days: "+str(personsarriving)
+	else:
+		$PeopleArriving.text = "Nobody's coming for now!"
 
 var Resources_for_construction = {
 	base2=25,
@@ -137,7 +138,7 @@ var Resources_for_construction = {
 	fusion_plants=1000,
 	o2_plants=300,    # generates o2 for 100 persons/day.
 	Cave=50,
-	Factory=250
+	Factory=150
 }
 
 var electricity_for_construction = {

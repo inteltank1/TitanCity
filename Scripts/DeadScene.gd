@@ -12,5 +12,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	get_parent().get_parent().restartgame()
+	get_parent().get_parent().get_parent().restartgame()
 	pass # Replace with function body.
