@@ -171,10 +171,10 @@ text = "Electricity needed: 10
 
 [node name="Names" type="Label" parent="Interface"]
 layout_mode = 0
-offset_left = 920.0
-offset_top = 535.0
-offset_right = 1126.0
-offset_bottom = 566.0
+offset_left = 8.0
+offset_top = 555.0
+offset_right = 214.0
+offset_bottom = 586.0
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("6_85udd")
 text = "Greenhouse

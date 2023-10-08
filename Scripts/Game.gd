@@ -16,7 +16,7 @@ var electricitylimit = 0
 var foodadd = 0
 var maxpeople = 0
 var population = 1
-var resources = 30
+var resources = 200
 var resourceadd = 0 
 
 var secsperday = 15
@@ -25,6 +25,8 @@ var alreadysendingpeople = false
 
 var daysuntilarrival = 0
 var personsarriving = 0
+var oxygenadd = 0
+var oxygen = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,6 +45,9 @@ func newday():
 	resources += resourceadd
 	foodpercent -= population*2
 	foodpercent += foodadd
+	oxygen += oxygenadd
+	oxygen -= population*2
+	
 	day += 1
 	time -= secsperday
 	updatelabels()
@@ -60,9 +65,11 @@ func newday():
 			population += personsarriving
 			alreadysendingpeople = false
 			updatelabels()
-			
-			
-		
+	
+	if oxygen <= 0 || foodpercent <= 0 || population > maxpeople:
+		print("DEAD")
+
+
 
 func createhistory():
 	var instance = Package.instantiate()
@@ -87,6 +94,10 @@ func foodmaker(food):
 	foodadd += food
 	updatelabels()
 	
+func oxygenmaker(oxygen):
+	oxygenadd += oxygen
+	updatelabels()
+	
 func houselimitadd(peopleadd):
 	maxpeople += peopleadd
 	updatelabels()
@@ -98,6 +109,7 @@ func getresources(howmuch):
 	resourceadd += howmuch
 	
 func updatelabels():
+	$ColorRect/Oxygen/OxygenText.text = str(oxygen)
 	$ColorRect/Inhabitants/InhabitantsText.text = str(population)+"/"+str(maxpeople)
 	$ColorRect/Resources/ResourcesText.text = str(resources)
 	$ColorRect/Food/FoodText.text = str(foodpercent)
@@ -134,12 +146,12 @@ var names = {
 	base2="Base for 2",
 	base4="Base for 4",
 	base6="Base for 6",
-	Windmill="Windmill",
-	Greenhouse="Greenhouse",
-	SolarPanels="Solar Panels",
+	Windmill="Windmill (+10 Elec.)",
+	Greenhouse="Greenhouse (+10 Food/day)",
+	SolarPanels="Solar Panels (+5 Elec.)",
 	o2_plants="Base for 2",    # generates o2 for 100 persons/day.
-	Cave="Cave",
-	Factory="Factory"
+	Cave="Cave (+40 Mats/day)",
+	Factory="Factory (+10 O2/day)"
 }
 
 func canplace(whichname):
