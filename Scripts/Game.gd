@@ -119,9 +119,8 @@ func canplace(name):
 		return false
 
 func resourcesneeded(name):
+	$ElectricityNeededText.text = "Electricity needed: "+str(electricity_for_construction[name])
 	$ResourcesNeededText.text = "Resources needed: "+str(Resources_for_construction[name])
-
-
 
 func _on_speedx_1_pressed():
 	secsperday = 15

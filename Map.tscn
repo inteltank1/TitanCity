@@ -158,6 +158,17 @@ theme_override_styles/normal = ExtResource("6_85udd")
 text = "Resources needed: 200
 "
 
+[node name="ElectricityNeededText" type="Label" parent="Interface"]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 571.0
+offset_right = 1126.0
+offset_bottom = 602.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_85udd")
+text = "Electricity needed: 10
+"
+
 [node name="ColorRect" type="ColorRect" parent="Interface"]
 layout_mode = 0
 offset_right = 129.0
