@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cdy6vkhq3mjqk"]
+[gd_scene load_steps=28 format=3 uid="uid://cdy6vkhq3mjqk"]
 
 [ext_resource type="Script" path="res://Scripts/Builder.gd" id="1_nbeg1"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_tjhes"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dn1g3e4k7mi0u" path="res://Resources/Models/PlaceableModels/Greenhouse/Greenhouse.tscn" id="16_sgw0s"]
 [ext_resource type="PackedScene" uid="uid://c4tib8yuqsl54" path="res://Resources/Models/PlaceableModels/Cave/Cave.tscn" id="17_tgg6h"]
 [ext_resource type="PackedScene" uid="uid://bnojdgael63yi" path="res://Resources/Models/PlaceableModels/Windmill/Windmill.tscn" id="18_y8sn1"]
+[ext_resource type="PackedScene" uid="uid://gptn8y1prvpu" path="res://Resources/Models/PlaceableModels/Factory/Factory.tscn" id="19_agvct"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_wn6i3"]
 
@@ -341,8 +342,17 @@ transform = Transform3D(1.83, 0, 0, 0, 1.83, 0, 0, 0, 1.83, -6, 0.76703, 14.5819
 [node name="Windmill" parent="PlacedStructures" instance=ExtResource("18_y8sn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.94357, 0, 10.0446)
 
+[node name="Windmill3" parent="PlacedStructures" instance=ExtResource("18_y8sn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.94357, 0, 28.1019)
+
+[node name="Windmill4" parent="PlacedStructures" instance=ExtResource("18_y8sn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.94357, 0, 32.8422)
+
 [node name="Windmill2" parent="PlacedStructures" instance=ExtResource("18_y8sn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7566, -9.53674e-07, 5.64334)
+
+[node name="Factory" parent="PlacedStructures" instance=ExtResource("19_agvct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35094, 0, 28.9141)
 
 [connection signal="pressed" from="Interface/Speedx1" to="Interface" method="_on_speedx_1_pressed"]
 [connection signal="pressed" from="Interface/Speedx2" to="Interface" method="_on_speedx_2_pressed"]
