@@ -18,7 +18,7 @@ var electricitylimit = 0
 var foodadd = 0
 var maxpeople = 0
 var population = 1
-var resources = 10
+var resources = 200
 var resourceadd = 0 
 
 var secsperday = 15

@@ -1,13 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnojdgael63yi"]
+[gd_scene load_steps=8 format=3 uid="uid://bnojdgael63yi"]
 
-[ext_resource type="ArrayMesh" uid="uid://ct5si8snwfpoy" path="res://Resources/Models/PlaceableModels/Windmill/Windmill.obj" id="1_0chj2"]
+[ext_resource type="ArrayMesh" uid="uid://d23bvfxuerwvw" path="res://Resources/Models/PlaceableModels/Windmill/Windmillbase.obj" id="1_c55sm"]
 [ext_resource type="Script" path="res://Resources/Models/PlaceableModels/Windmill/Windmill.gd" id="2_ex8xb"]
+[ext_resource type="ArrayMesh" uid="uid://cvbver80h2hj" path="res://Resources/Models/PlaceableModels/Windmill/WindmillWings.obj" id="3_rqx3n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p2t60"]
 size = Vector3(3.50067, 3.49138, 4.09454)
 
+[sub_resource type="Animation" id="Animation_qayea"]
+resource_name = "WingsMoving"
+length = 5.0
+loop_mode = 1
+step = 0.0665
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(6.28319, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jj2nv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b35o2"]
+_data = {
+"RESET": SubResource("Animation_jj2nv"),
+"WingsMoving": SubResource("Animation_qayea")
+}
+
 [node name="Windmill" type="CSGMesh3D"]
-mesh = ExtResource("1_0chj2")
+mesh = ExtResource("1_c55sm")
 script = ExtResource("2_ex8xb")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -16,3 +56,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0056
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0751084, 1.47846, 0.016387)
 shape = SubResource("BoxShape3D_p2t60")
+
+[node name="WindmillWings" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.206, 0)
+mesh = ExtResource("3_rqx3n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../WindmillWings")
+libraries = {
+"": SubResource("AnimationLibrary_b35o2")
+}

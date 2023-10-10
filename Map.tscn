@@ -343,13 +343,13 @@ transform = Transform3D(1.83, 0, 0, 0, 1.83, 0, 0, 0, 1.83, -6, 0.76703, 14.5819
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.94357, 0, 10.0446)
 
 [node name="Windmill3" parent="PlacedStructures" instance=ExtResource("18_y8sn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.94357, 0, 28.1019)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09211, 0, 28.1019)
 
 [node name="Windmill4" parent="PlacedStructures" instance=ExtResource("18_y8sn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.94357, 0, 32.8422)
 
 [node name="Windmill2" parent="PlacedStructures" instance=ExtResource("18_y8sn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7566, -9.53674e-07, 5.64334)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6356, -9.53674e-07, 5.64334)
 
 [node name="Factory" parent="PlacedStructures" instance=ExtResource("19_agvct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35094, 0, 28.9141)
