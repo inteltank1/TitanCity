@@ -62,6 +62,7 @@ func newday():
 			daysuntilarrival = randi_range(3, 10)
 			self.add_child(instance)
 			instance.peoplearriving(personsarriving, daysuntilarrival)
+			updatelabels()
 		elif alreadysendingpeople && daysuntilarrival > 0:
 			daysuntilarrival -= 1
 			if daysuntilarrival == 0:
