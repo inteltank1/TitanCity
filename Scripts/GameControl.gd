@@ -13,5 +13,6 @@ func _process(delta):
 func restartgame():
 	remove_child($GameInstance)
 	var instance = load("res://Map.tscn").instantiate()
+	instance.name = "GameInstance"
 	self.add_child(instance)
 	
