@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bglmo2xej3t3"]
+
+[ext_resource type="Script" path="res://Resources/Particle.gd" id="1_glriq"]
+[ext_resource type="Texture2D" uid="uid://bwysegbr3i3ha" path="res://Resources/Images/Sphere.png" id="2_7mfxr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxqxj"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_7mfxr")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_kfs1n"]
+size = Vector2(2, 2)
+
+[sub_resource type="Gradient" id="Gradient_uw6w2"]
+colors = PackedColorArray(0.374139, 0.374139, 0.374139, 1, 1, 1, 1, 1)
+
+[node name="ParticleEmitter" type="Node3D"]
+script = ExtResource("1_glriq")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_wxqxj")
+emitting = false
+amount = 32
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_kfs1n")
+emission_shape = 3
+emission_box_extents = Vector3(2, 0, 2)
+direction = Vector3(0, 5, 0)
+spread = 101.36
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -12.07
+radial_accel_max = -12.07
+scale_amount_min = 0.1
+scale_amount_max = 10.3
+color = Color(1, 1, 1, 0.501961)
+color_initial_ramp = SubResource("Gradient_uw6w2")
