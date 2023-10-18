@@ -322,14 +322,6 @@ text = "Package Receiver"
 
 [node name="PlacedStructures" type="Node3D" parent="."]
 
-[node name="SolarPanels" parent="PlacedStructures" instance=ExtResource("14_n8d7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06091, 0, 21.2283)
-skeleton = NodePath("../..")
-
-[node name="SolarPanels2" parent="PlacedStructures" instance=ExtResource("14_n8d7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.056, 0, 13.7684)
-skeleton = NodePath("../..")
-
 [node name="2House" parent="PlacedStructures" instance=ExtResource("15_oy6p3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19543, 0, 6.45031)
 
@@ -353,6 +345,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6356, -9.53674e-07, 5.6433
 
 [node name="Factory" parent="PlacedStructures" instance=ExtResource("19_agvct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35094, 0, 28.9141)
+
+[node name="SolarPanels" parent="PlacedStructures" instance=ExtResource("14_n8d7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.979263, 0, 21.0913)
+skeleton = NodePath("../..")
+
+[node name="SolarPanels2" parent="PlacedStructures" instance=ExtResource("14_n8d7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18466, 9.53674e-07, 13.7451)
+skeleton = NodePath("../..")
 
 [connection signal="pressed" from="Interface/Speedx1" to="Interface" method="_on_speedx_1_pressed"]
 [connection signal="pressed" from="Interface/Speedx2" to="Interface" method="_on_speedx_2_pressed"]
