@@ -179,15 +179,18 @@ func resourcesneeded(whichname):
 	$ResourcesNeededText.text = "Resources needed: "+str(Resources_for_construction[whichname])
 
 func _on_speedx_1_pressed():
+	time = 0
 	secsperday = 15
 	pass # Replace with function body.
 
 
 func _on_speedx_2_pressed():
+	time = 0
 	secsperday = 7.5
 	pass # Replace with function body.
 
 
 func _on_speedx_3_pressed():
+	time = 0
 	secsperday = 2.5
 	pass # Replace with function body.

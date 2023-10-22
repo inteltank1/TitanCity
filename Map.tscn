@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cdy6vkhq3mjqk"]
+[gd_scene load_steps=34 format=3 uid="uid://cdy6vkhq3mjqk"]
 
 [ext_resource type="Script" path="res://Scripts/Builder.gd" id="1_nbeg1"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_tjhes"]
@@ -19,6 +19,33 @@
 [ext_resource type="PackedScene" uid="uid://c4tib8yuqsl54" path="res://Resources/Models/PlaceableModels/Cave/Cave.tscn" id="17_tgg6h"]
 [ext_resource type="PackedScene" uid="uid://bnojdgael63yi" path="res://Resources/Models/PlaceableModels/Windmill/Windmill.tscn" id="18_y8sn1"]
 [ext_resource type="PackedScene" uid="uid://gptn8y1prvpu" path="res://Resources/Models/PlaceableModels/Factory/Factory.tscn" id="19_agvct"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_nc5wv"]
+device = -1
+pressed = true
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_3n1gw"]
+events = [SubResource("InputEventKey_nc5wv")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_1kssa"]
+device = -1
+pressed = true
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_e253b"]
+events = [SubResource("InputEventKey_1kssa")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_7jlwf"]
+device = -1
+pressed = true
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_cnnyr"]
+events = [SubResource("InputEventKey_7jlwf")]
 
 [sub_resource type="SphereMesh" id="SphereMesh_wn6i3"]
 
@@ -71,50 +98,6 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_3ubql")
 
 [node name="Node3D" type="Node3D"]
 
-[node name="BuilderNode" type="Node3D" parent="."]
-script = ExtResource("1_nbeg1")
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="BuilderNode"]
-motion_mode = 1
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="BuilderNode/CharacterBody3D"]
-mesh = SubResource("SphereMesh_wn6i3")
-
-[node name="Terrain" type="MeshInstance3D" parent="."]
-transform = Transform3D(7.515, 0, 0, 0, 7.515, 0, 0, 0, 7.515, 0, 0.35, 0)
-material_override = ExtResource("2_ojcab")
-mesh = ExtResource("9_1t3cl")
-
-[node name="TerrainArea" type="Area3D" parent="Terrain"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/TerrainArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442306, 0)
-shape = SubResource("BoxShape3D_c1uwu")
-
-[node name="Lava" type="CSGMesh3D" parent="."]
-transform = Transform3D(250, 0, 0, 0, 1, 0, 0, 0, 250, 0, 0, 0)
-mesh = SubResource("PlaneMesh_4d2bx")
-material = SubResource("ShaderMaterial_smuke")
-
-[node name="TerrainArea" type="Area3D" parent="Lava"]
-transform = Transform3D(0.429, 0, 0, 0, 0.429, 0, 0, 0, 0.429, 0, 0.0493302, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Lava/TerrainArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442306, 0)
-shape = SubResource("BoxShape3D_c1uwu")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.39956, -0.755822, 0.518734, 0.189796, 0.485399, 0.853443, -0.896844, 0.439455, -0.050494, 4.01131, 3.42539, 0.0100279)
-light_color = Color(1, 0.776471, 0.698039, 1)
-light_indirect_energy = 16.0
-
-[node name="CameraNode" type="Node3D" parent="."]
-script = ExtResource("1_tjhes")
-
-[node name="Camera3D" type="Camera3D" parent="CameraNode"]
-transform = Transform3D(-4.37114e-08, -0.866025, 0.5, 0, 0.5, 0.866025, -1, 3.78552e-08, -2.18557e-08, 15.0052, 15.593, -0.0171127)
-fov = 90.0
-
 [node name="Interface" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -130,6 +113,7 @@ offset_left = 514.0
 offset_top = 603.0
 offset_right = 542.0
 offset_bottom = 634.0
+shortcut = SubResource("Shortcut_3n1gw")
 text = ">"
 
 [node name="Speedx2" type="Button" parent="Interface"]
@@ -138,6 +122,7 @@ offset_left = 554.0
 offset_top = 603.0
 offset_right = 582.0
 offset_bottom = 634.0
+shortcut = SubResource("Shortcut_e253b")
 text = ">>"
 
 [node name="Speedx3" type="Button" parent="Interface"]
@@ -146,6 +131,7 @@ offset_left = 594.0
 offset_top = 603.0
 offset_right = 630.0
 offset_bottom = 634.0
+shortcut = SubResource("Shortcut_cnnyr")
 text = ">>>"
 
 [node name="ResourcesNeededText" type="Label" parent="Interface"]
@@ -320,6 +306,50 @@ offset_right = 156.0
 offset_bottom = 641.0
 text = "Package Receiver"
 
+[node name="BuilderNode" type="Node3D" parent="."]
+script = ExtResource("1_nbeg1")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="BuilderNode"]
+motion_mode = 1
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="BuilderNode/CharacterBody3D"]
+mesh = SubResource("SphereMesh_wn6i3")
+
+[node name="Terrain" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.515, 0, 0, 0, 7.515, 0, 0, 0, 7.515, 0, 0.35, 0)
+material_override = ExtResource("2_ojcab")
+mesh = ExtResource("9_1t3cl")
+
+[node name="TerrainArea" type="Area3D" parent="Terrain"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/TerrainArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442306, 0)
+shape = SubResource("BoxShape3D_c1uwu")
+
+[node name="Lava" type="CSGMesh3D" parent="."]
+transform = Transform3D(250, 0, 0, 0, 1, 0, 0, 0, 250, 0, 0, 0)
+mesh = SubResource("PlaneMesh_4d2bx")
+material = SubResource("ShaderMaterial_smuke")
+
+[node name="TerrainArea" type="Area3D" parent="Lava"]
+transform = Transform3D(0.429, 0, 0, 0, 0.429, 0, 0, 0, 0.429, 0, 0.0493302, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lava/TerrainArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442306, 0)
+shape = SubResource("BoxShape3D_c1uwu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.39956, -0.755822, 0.518734, 0.189796, 0.485399, 0.853443, -0.896844, 0.439455, -0.050494, 4.01131, 3.42539, 0.0100279)
+light_color = Color(1, 0.776471, 0.698039, 1)
+light_indirect_energy = 16.0
+
+[node name="CameraNode" type="Node3D" parent="."]
+script = ExtResource("1_tjhes")
+
+[node name="Camera3D" type="Camera3D" parent="CameraNode"]
+transform = Transform3D(-4.37114e-08, -0.866025, 0.5, 0, 0.5, 0.866025, -1, 3.78552e-08, -2.18557e-08, 15.0052, 15.593, -0.0171127)
+fov = 90.0
+
 [node name="PlacedStructures" type="Node3D" parent="."]
 
 [node name="2House" parent="PlacedStructures" instance=ExtResource("15_oy6p3")]
@@ -340,9 +370,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09211, 0, 28.1019)
 [node name="Windmill4" parent="PlacedStructures" instance=ExtResource("18_y8sn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.94357, 0, 32.8422)
 
-[node name="Windmill2" parent="PlacedStructures" instance=ExtResource("18_y8sn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6356, -9.53674e-07, 5.64334)
-
 [node name="Factory" parent="PlacedStructures" instance=ExtResource("19_agvct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35094, 0, 28.9141)
 
@@ -353,6 +380,9 @@ skeleton = NodePath("../..")
 [node name="SolarPanels2" parent="PlacedStructures" instance=ExtResource("14_n8d7i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18466, 9.53674e-07, 13.7451)
 skeleton = NodePath("../..")
+
+[node name="Windmill2" parent="PlacedStructures" instance=ExtResource("18_y8sn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.51221, 0, 6.36146)
 
 [connection signal="pressed" from="Interface/Speedx1" to="Interface" method="_on_speedx_1_pressed"]
 [connection signal="pressed" from="Interface/Speedx2" to="Interface" method="_on_speedx_2_pressed"]

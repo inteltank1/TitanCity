@@ -56,7 +56,6 @@ func _process(delta):
 func changemodel():
 	GameScript.resourcesneeded(modelsnames[current])
 	model.mesh = modelsarray[current]
-	pass
 
 func canIplace(delta):
 	if GameScript.canplace(modelsnames[current]):

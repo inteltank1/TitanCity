@@ -15,9 +15,9 @@ var futurecoord = Vector3()
 
 func create(position):
 	coord = position
-	self.position.y -= 2
-	coord.y -= 2
-	futurecoord = coord + Vector3(0, 2, 0)
+	self.position.y -= 4
+	coord.y -= 4
+	futurecoord = coord + Vector3(0, 4, 0)
 	print(coord)
 	print(futurecoord)
 
