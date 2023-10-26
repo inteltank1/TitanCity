@@ -10,6 +10,10 @@ var dead = false
 @onready var SpeedText = $SpeedText
 
 @onready var FoodText = $ColorRect/Food/FoodText
+
+@onready var safestyle = load("res://Resources/Styles/StyleSafe.tres")
+@onready var warnstyle = load("res://Resources/Styles/Style.tres")
+
 var foodpercent = 50
 var time = 0
 var day = 0
@@ -125,8 +129,12 @@ func updatelabels():
 	
 	if alreadysendingpeople:
 		$PeopleArriving.text = "People arriving in "+str(daysuntilarrival)+" days: "+str(personsarriving)
+		if daysuntilarrival <= 2:
+			$PeopleArriving.add_theme_stylebox_override("normal", warnstyle)
 	else:
 		$PeopleArriving.text = "Nobody's coming for now!"
+		$PeopleArriving.add_theme_stylebox_override("normal", safestyle)
+		
 
 var Resources_for_construction = {
 	base2=25,
