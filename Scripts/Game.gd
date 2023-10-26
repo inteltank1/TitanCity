@@ -120,21 +120,45 @@ func getresources(howmuch):
 	resourceadd += howmuch
 	
 func updatelabels():
+	safeordanger($ColorRect/Oxygen/OxygenText, false)
+	safeordanger($ColorRect/Inhabitants/InhabitantsText, false)
+	safeordanger($ColorRect/Resources/ResourcesText, false)
+	safeordanger($ColorRect/Food/FoodText, false)
+	safeordanger($ColorRect/Electricity/ElectricityText, false)
+	safeordanger(DayText, false)
+	
 	$ColorRect/Oxygen/OxygenText.text = str(oxygen)
+	
+	if oxygen <= 4*population:
+		_on_speedx_1_pressed()
+		safeordanger($ColorRect/Oxygen/OxygenText, true)
+	
 	$ColorRect/Inhabitants/InhabitantsText.text = str(population)+"/"+str(maxpeople)
 	$ColorRect/Resources/ResourcesText.text = str(resources)
 	$ColorRect/Food/FoodText.text = str(foodpercent)
+	
+	if foodpercent <= 4*population:
+		_on_speedx_1_pressed()
+		safeordanger($ColorRect/Food/FoodText, true)
+		
 	$ColorRect/Electricity/ElectricityText.text = str(electricityused)+"/"+str(electricitylimit)
 	DayText.text = "Day " + str(day)
 	
 	if alreadysendingpeople:
 		$PeopleArriving.text = "People arriving in "+str(daysuntilarrival)+" days: "+str(personsarriving)
 		if daysuntilarrival <= 2:
-			$PeopleArriving.add_theme_stylebox_override("normal", warnstyle)
+			safeordanger($PeopleArriving, true)
 	else:
 		$PeopleArriving.text = "Nobody's coming for now!"
-		$PeopleArriving.add_theme_stylebox_override("normal", safestyle)
+		safeordanger($PeopleArriving, false)
 		
+
+func safeordanger(namebox, danger):
+	if danger:
+		namebox.add_theme_stylebox_override("normal", warnstyle)
+	else:
+		namebox.add_theme_stylebox_override("normal", safestyle)
+	
 
 var Resources_for_construction = {
 	base2=25,
