@@ -7,7 +7,7 @@ var dead = false
 #Resources needed for the construction of the elements
 
 @onready var DayText = $ColorRect/Day/DayText
-
+@onready var SpeedText = $SpeedText
 
 @onready var FoodText = $ColorRect/Food/FoodText
 var foodpercent = 50
@@ -181,16 +181,19 @@ func resourcesneeded(whichname):
 func _on_speedx_1_pressed():
 	time = 0
 	secsperday = 15
+	SpeedText.text = "x1"
 	pass # Replace with function body.
 
 
 func _on_speedx_2_pressed():
 	time = 0
 	secsperday = 7.5
+	SpeedText.text = "x2"
 	pass # Replace with function body.
 
 
 func _on_speedx_3_pressed():
 	time = 0
-	secsperday = 2.5
+	secsperday = 3.75
+	SpeedText.text = "x3"
 	pass # Replace with function body.
