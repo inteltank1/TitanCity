@@ -6,6 +6,7 @@ var camera_rotation:Vector3
 
 @onready var selector = $"../BuilderNode/CharacterBody3D"
 @onready var camera = $Camera3D
+@onready var builderthing = $"../BuilderNode"
 
 var rayorigin = Vector3()
 var rayend = Vector3()
@@ -29,6 +30,7 @@ func _process(delta):
 	
 	if mousein==true:
 		if "Terrain" in str(result.collider):
+			builderthing.alreadyplaced = false
 			selector.position = selector.position.lerp(result.position, delta * 40)
 	# Handle input
 
@@ -64,7 +66,9 @@ func _input(event):
 		var origin = camera.project_ray_origin(mouse_position)
 		var end = origin + camera.project_ray_normal(mouse_position) * 2000
 		var query = PhysicsRayQueryParameters3D.create(origin, end)
+		
 		query.collide_with_areas = true
+		
 		result = space_state.intersect_ray(query)
 	
 func _notification(what):

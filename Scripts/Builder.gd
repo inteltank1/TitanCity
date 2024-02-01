@@ -58,7 +58,7 @@ func changemodel():
 	model.mesh = modelsarray[current]
 
 func canIplace(delta):
-	if GameScript.canplace(modelsnames[current]):
+	if GameScript.canplace(modelsnames[current]) and alreadyplaced == false:
 		alreadyplaced = true
 		var scenetoload = Scenes[current].instantiate()
 		scenetoload.position = selector.position
