@@ -153,8 +153,8 @@ func updatelabels():
 		$PeopleArriving.text = "Nobody's coming for now!"
 		safeordanger($PeopleArriving, false)
 		
-	safeordanger($ElectricityNeededText, electricity_for_construction[currentpick] >= electricitylimit-electricityused)
-	safeordanger($ResourcesNeededText, Resources_for_construction[currentpick] >= resources)
+	safeordanger($ElectricityNeededText, electricity_for_construction[currentpick] > electricitylimit-electricityused)
+	safeordanger($ResourcesNeededText, Resources_for_construction[currentpick] > resources)
 
 func safeordanger(namebox, danger):
 	if danger:
@@ -212,8 +212,8 @@ func resourcesneeded(whichname):
 	$Names.text = names[whichname]
 	$ElectricityNeededText.text = "Electricity needed: "+str(electricity_for_construction[whichname])
 	$ResourcesNeededText.text = "Resources needed: "+str(Resources_for_construction[whichname])
-	safeordanger($ElectricityNeededText, electricity_for_construction[currentpick] >= electricitylimit-electricityused)
-	safeordanger($ResourcesNeededText, Resources_for_construction[currentpick] >= resources)
+	safeordanger($ElectricityNeededText, electricity_for_construction[currentpick] > electricitylimit-electricityused)
+	safeordanger($ResourcesNeededText, Resources_for_construction[currentpick] > resources)
 
 func _on_speedx_1_pressed():
 	time = 0
